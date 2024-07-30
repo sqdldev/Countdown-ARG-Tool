@@ -1,0 +1,121 @@
+html,
+body {
+	max-width: 720px;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+textarea {
+	resize: none;
+}
+
+canvas#videoHexCodesOut {
+	width: 100%;
+	height: 100%;
+	image-rendering: pixelated;
+}
+
+span {
+	white-space: pre-wrap;
+}
+
+span.filled {
+	opacity: 1;
+}
+
+span.unfilled {
+	opacity: 0.5;
+}
+
+@font-face {
+	font-family: "countdown";
+	src: url("assets/tama_mini02.ttf");
+}
+
+div#clock-anim {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+div#clock-container {
+	display: none;
+}
+
+svg.clock,
+button#day-counter {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	width: 200px;
+	height: 200px;
+	border: solid 5.25px var(--bs-secondary-color);
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+
+svg.clock.m {
+	background: url(assets/m.gif);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+button#day-counter {
+	background: var(--bs-body-bg);
+	color: var(--bs-body-color);
+	font-family: "countdown";
+	font-size: 30px;
+	padding: 35px;
+	padding-top: 38px;
+}
+
+line.hand {
+	stroke: var(--bs-body-color);
+	stroke-width: 2.15;
+	transform-origin: 50% 50%;
+}
+
+text#day.number {
+	fill: var(--bs-body-color);
+	font-size: 32px;
+	text-anchor: middle;
+	alignment-baseline: middle;
+	font-family: "countdown";
+	transform: scale(0);
+	transform-origin: 50% 50%;
+	text-shadow: 0 0 15px var(--bs-body-bg);
+}
+
+img {
+	width: 100%;
+	display: block;
+
+}
+
+textarea#videoHexCodes {
+	overflow-y: auto;
+	max-height: 400px;
+}
+
+br {
+	content: "";
+	margin: 1rem;
+	display: block;
+	font-size: 24%;
+}
+
+blockquote {
+	padding: 10px 20px;
+	margin: 0 0 20px;
+	font-size: 17.5px;
+	border-left: 5px solid #eeeeee4d;
+}

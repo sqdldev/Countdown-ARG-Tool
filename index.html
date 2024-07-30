@@ -1,0 +1,247 @@
+<!doctype html>
+<html data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Countdown ARG Tool</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-E48XX6KB6H"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-E48XX6KB6H");
+    </script>
+    <link rel="prefetch" href="assets/m.gif" />
+    <link rel="prefetch" href="assets/m.mp3" />
+  </head>
+
+  <body class="m-4">
+    <h1>Countdown ARG Tool</h1>
+    <p class="mb-2">
+      A set of tools to help solve Countdown ARG. I am back in the US, so expect
+      this website to be updated on time. Please consider to
+      <a href="https://youtube.com/@sqdldev" target="_blank"
+        >Subscribe my YouTube</a
+      >, it is very appreciated!
+    </p>
+    <p>
+      *GitHub takes 1-3 minutes to update my website, so please check back in a
+      few minutes if the newest number is not out yet
+    </p>
+
+    <div id="clock-anim">
+      <div id="clock-container">
+        <svg class="clock" viewBox="0 0 100 100">
+          <line id="hand" x1="50" y1="12" x2="50" y2="6" class="hand" />
+          <text id="day" x="50" y="50" class="number">100</text>
+        </svg>
+      </div>
+      <button id="day-counter" class="btn btn-primary">What Day is it?</button>
+    </div>
+    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/BPryG4wQEk0?si=vvFXenYLMcPgb2WT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+    <p id="updateDay"></p>
+    <div class="ms-2 my-3">
+      <h2>Description to URL</h2>
+      <div class="ms-2">
+        <label for="descToUrl"
+          >Input your numbers from the video description. Copy and paste
+          directly to have an easy conversion in case I have not update the
+          website yet. Click History to expand all of the previous days.</label
+        >
+        <textarea
+          class="form-control my-2 overflow-hidden"
+          id="descToUrl"
+        ></textarea>
+        <span id="descToUrlOut"
+          >If you're seeing this, you need to reload the page.</span
+        >
+        <div class="border-0 my-2 card">
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseDescToUrlHistory"
+            aria-bs-expanded="false"
+            aria-bs-controls="collapseDescToUrlHistory"
+          >
+            History
+          </button>
+          <div class="collapse" id="collapseDescToUrlHistory">
+            <div class="p-3 card" id="collapseDescToUrlHistoryContent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ms-2 my-3">
+      <h2>Decode Morse</h2>
+      <div class="ms-2">
+        <label for="morseDecode"
+          >Input morse consisting of . and - to decode into plain text. Map the
+          letters to the lyric in the Lyric Map to see how far along we
+          are.</label
+        >
+        <input class="form-control my-2" id="morseDecode" />
+        <span id="morseDecodeOut"
+          >If you're seeing this, you need to reload the page.</span
+        >
+      </div>
+    </div>
+    <div class="ms-2 my-3 d-none">
+      <h2>Make A Comment</h2>
+      <div class="ms-2">
+        <label for="spreadComment"
+          >Copy & Paste the comment I often have on unlisted videos.</label
+        >
+        <textarea
+          class="form-control my-2 overflow-hidden"
+          id="spreadComment"
+        ></textarea>
+      </div>
+    </div>
+    <div class="ms-2 my-3">
+      <h2>Decode Video HexCodes</h2>
+      <div class="ms-2">
+        <label for="videoHexCodes"
+          >Input hex codes without "#" to map them onto the canvas below to
+          complete the image. If you want to check how it works you can look at
+          the
+          <a
+            href="https://replit.com/@sqdldev/Countdown-ARG-Tool#script.js"
+            target="_blank"
+            >Replit Source Code</a
+          >. If the code has a mistake, you can contribute to it by adding a
+          fork on Replit.</label
+        >
+        <textarea class="form-control my-2" id="videoHexCodes"></textarea>
+        <div class="my-3 d-none">
+          <label
+            for="videoHexCodesOutWidth"
+            id="videoHexCodesOutWidthLabel"
+            class="form-label"
+            >Width</label
+          >
+          <input
+            type="range"
+            class="form-range w-100"
+            id="videoHexCodesOutWidth"
+            min="0"
+            max="100"
+          />
+          <label
+            for="videoHexCodesOutHeight"
+            id="videoHexCodesOutHeightLabel"
+            class="form-label"
+            >Height</label
+          >
+          <input
+            type="range"
+            class="form-range w-100"
+            id="videoHexCodesOutHeight"
+            min="0"
+            max="100"
+          />
+          <div class="form-check d-none">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="videoHexCodesOutVFlip"
+              checked
+            />
+            <label class="form-check-label" for="videoHexCodesOutVFlip">
+              Unscramble from Morse Index
+            </label>
+          </div>
+        </div>
+        <br />
+        <h1>Wow...</h1>
+        <p>
+          I never expected to get to here. Where even are we? Right. We are
+          at... the ANSWER!!!
+          <br />
+          The last hidden video uploaded by Countdown is "ANSWER". Thanks to the
+          smartness of somebody else, I was able to adjust Countdown ARG Tool's
+          code to show the actual intended image instead of a pixel jumble.
+          <br />
+          <img src="assets/genius.png" />
+          <br />
+          Apparently, I have been doing the entire ARG wrong lol...
+          <br />
+          We were supposed to wait until the last day and use Day 0's hidden
+          video to solve the ARG, hence the video's name being "ANSWER" in Morse
+          Code.
+          <br />
+          But, I brute forced a solve using what we expected the solution to be.
+          It was okay for the lyrics, but not very great for the actual image.
+          <br />
+          With our Discord friend's idea, I was able to edit the code of
+          Countdown ARG Tool to display the REAL unscrambled image.
+          <br />
+          Here is the actual incredible image we have all been working hard for.
+        </p>
+        <canvas class="card" id="videoHexCodesOut"
+          >Your browser does not support Canvas</canvas
+        >
+        <p>
+          <br />
+          If you're interested in the technicalities of the solution, this
+          section is for you.
+          <br />
+          As I breifly touched on in the previous paragraph, Day 0's "ANSWER"
+          video had the key to solve Countdown ARG. Check out this screen
+          capture of the "ANSWER" video.
+          <br />
+          <img src="assets/day0.png" />
+          <br />
+          Each number is between 1-100 (Arranged in a 10x10 matrix), meaning it
+          corresponds to the Hex Code (Pixel Color)
+          <b>AND</b> the Morse Code of that specific day. As our friend
+          "@icantthinkofadisplayname" on Discord put it.
+        </p>
+        <blockquote>
+          The first number is 72, so I checked back that video in your tool's
+          history of unlisted videos and got a colour that makes sense, though
+          that could be a coincidence.
+        </blockquote>
+        <p>
+          <br />
+          This person on YouTube also figured out the solution independently
+          from our friend on Discord, so props to them too.
+          <br />
+          <img src="assets/othergenius.png" />
+          <br />
+          <br />
+          Despite the "Decode Morse" header being mostly wrong, I will keep it
+          there anyways.
+          <br />
+          This is a bittersweet end to the Countdown ARG. The only real thing
+          keeping me sane throughout this summer was actually waking up every
+          day and adding a new number to this ARG Tool. At the same time, I'm
+          happy that this ended, so I don't have to deal with the goofiness of
+          Replit...
+        </p>
+        <p>PS: click the "WHAT DAY IS IT" button at the top of the page</p>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
